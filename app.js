@@ -22,8 +22,7 @@ var adminRouter = require('./routes/admin');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 
-/*Env config */
-require('dotenv').config()
+
 var app = express();
 //mongoose connection
 mongoose.connect('mongodb+srv://heavenlyminded:heavenlyminded@heavenlyminded.zinft.mongodb.net/heavenlyminded?retryWrites=true&w=majority')
@@ -55,7 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Session Store */
 const sessionStore = new mongoStore({
-    mongooseConnection: mongoose.createConnection(process.env.MONGODBURL, {
+    mongooseConnection: mongoose.createConnection('TheBasics', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }),
