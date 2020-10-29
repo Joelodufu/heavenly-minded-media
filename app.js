@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Session Store */
 const sessionStore = new mongoStore({
-    mongooseConnection: mongoose.createConnection('TheBasics', {
+    mongooseConnection: mongoose.createConnection('mongodb+srv://heavenlyminded:heavenlyminded@heavenlyminded.zinft.mongodb.net/heavenlyminded?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }),
@@ -63,7 +63,7 @@ const sessionStore = new mongoStore({
 
 /**Using Flash And Session */
 app.use(session({
-    secret: process.env.SECRET,
+    secret: 'TheBasics',
     saveUninitialized: true,
     resave: false,
     store: sessionStore,
