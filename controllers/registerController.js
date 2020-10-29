@@ -56,13 +56,11 @@ module.exports = {
             )
     },
     Checkadminpass: (req, res, next) => {
-        User.findOne({ email: 'joeodufu@gmail.com' })
+        User.findOne({ isAdmin: true })
             .exec()
             .then(
-                admis => {
-                    console.log(`Admin Pass ${admis.password}`);
-
-                    res.redirect('/login')
+                admin => {
+                    res.status(200).json(admin)
                 }
             )
     }
