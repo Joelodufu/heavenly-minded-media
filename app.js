@@ -26,7 +26,7 @@ var contactRouter = require('./routes/contact');
 require('dotenv').config()
 var app = express();
 //mongoose connection
-mongoose.connect(configuration.mongodbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://heavenlyminded:heavenlyminded@heavenlyminded.zinft.mongodb.net/heavenlyminded?retryWrites=true&w=majority')
     .then(responds => {
         console.log('Mongodb Connected succesfully');
     })
