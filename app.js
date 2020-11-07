@@ -25,7 +25,7 @@ var contactRouter = require('./routes/contact');
 
 var app = express();
 //mongoose connection
-mongoose.connect('mongodb+srv://heavenlyminded:heavenlyminded@heavenlyminded.zinft.mongodb.net/heavenlyminded?retryWrites=true&w=majority')
+mongoose.connect(configuration.mongodbUrl)
     .then(responds => {
         console.log('Mongodb Connected succesfully');
     })
@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Session Store */
 const sessionStore = new mongoStore({
-    mongooseConnection: mongoose.createConnection('mongodb+srv://heavenlyminded:heavenlyminded@heavenlyminded.zinft.mongodb.net/heavenlyminded?retryWrites=true&w=majority', {
+    mongooseConnection: mongoose.createConnection(configuration.mongodbUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }),
